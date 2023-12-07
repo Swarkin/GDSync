@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://blcyq64s82lk7"]
+
+[ext_resource type="LabelSettings" uid="uid://bcls25qfrokfy" path="res://addons/godotsync/visual/label_title.tres" id="1_lw23v"]
+[ext_resource type="PackedScene" uid="uid://n57xalrheu3d" path="res://addons/godotsync/visual/session.tscn" id="2_mjrsn"]
+
+[node name="Main" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 4
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "GDSync"
+label_settings = ExtResource("1_lw23v")
+horizontal_alignment = 1
+
+[node name="HFlow" type="HFlowContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Session" parent="VBox/HFlow" instance=ExtResource("2_mjrsn")]
+unique_name_in_owner = true
+layout_mode = 2

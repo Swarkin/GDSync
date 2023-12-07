@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxl3ye7cf7c0i"]
+
+[ext_resource type="Script" path="res://addons/godotsync/visual/address_picker.gd" id="1_0rmnh"]
+
+[node name="AddressPicker" type="PanelContainer"]
+offset_right = 214.0
+offset_bottom = 39.0
+script = ExtResource("1_0rmnh")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="Address" type="HBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
+
+[node name="IP" type="LineEdit" parent="Margin/VBox/Address"]
+custom_minimum_size = Vector2(135, 0)
+layout_mode = 2
+text = "127.0.0.1"
+placeholder_text = "Address"
+expand_to_text_length = true
+context_menu_enabled = false
+virtual_keyboard_type = 2
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="Port" type="LineEdit" parent="Margin/VBox/Address"]
+custom_minimum_size = Vector2(65, 0)
+layout_mode = 2
+text = "6969"
+placeholder_text = "Port"
+max_length = 5
+expand_to_text_length = true
+context_menu_enabled = false
+virtual_keyboard_type = 2
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="IPError" type="Label" parent="Margin/VBox"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Invalid IP Address"
+
+[node name="PortError" type="Label" parent="Margin/VBox"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Invalid Port"
+
+[connection signal="text_changed" from="Margin/VBox/Address/IP" to="." method="validate_ip"]
+[connection signal="text_changed" from="Margin/VBox/Address/Port" to="." method="validate_port"]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxcn413v0gu3"]
+
+[ext_resource type="Script" path="res://addons/godotsync/src/main.gd" id="1_btji2"]
+[ext_resource type="Script" path="res://addons/godotsync/src/networking.gd" id="2_wqfuu"]
+[ext_resource type="Script" path="res://addons/godotsync/src/ui.gd" id="3_3y6pc"]
+
+[node name="GDSync" type="Node"]
+script = ExtResource("1_btji2")
+
+[node name="Networking" type="Node" parent="."]
+script = ExtResource("2_wqfuu")
+
+[node name="UI" type="Node" parent="."]
+script = ExtResource("3_3y6pc")

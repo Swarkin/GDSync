@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://n57xalrheu3d"]
+
+[ext_resource type="LabelSettings" uid="uid://bbxgfs2qfkvq0" path="res://addons/godotsync/visual/label_subtitle.tres" id="1_foxsn"]
+[ext_resource type="Script" path="res://addons/godotsync/visual/session.gd" id="1_xvjxo"]
+[ext_resource type="PackedScene" uid="uid://dnqu8tm2j40eb" path="res://addons/godotsync/visual/scene_picker.tscn" id="2_mxtai"]
+[ext_resource type="PackedScene" uid="uid://cxl3ye7cf7c0i" path="res://addons/godotsync/visual/address_picker.tscn" id="3_of6fu"]
+
+[node name="Session" type="PanelContainer"]
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_xvjxo")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Margin/VBox"]
+layout_mode = 2
+text = "Session"
+label_settings = ExtResource("1_foxsn")
+horizontal_alignment = 1
+
+[node name="AddressPicker" parent="Margin/VBox" instance=ExtResource("3_of6fu")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="ScenePicker" parent="Margin/VBox" instance=ExtResource("2_mxtai")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Spacer" type="Control" parent="Margin/VBox"]
+layout_mode = 2
+
+[node name="Controls" type="HBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 8
+
+[node name="Create" type="Button" parent="Margin/VBox/Controls"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Create"
+
+[node name="Connect" type="Button" parent="Margin/VBox/Controls"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Connect"
+
+[node name="End" type="Button" parent="Margin/VBox/Controls"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Stop"
