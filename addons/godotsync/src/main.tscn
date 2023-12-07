@@ -4,8 +4,10 @@
 [ext_resource type="Script" path="res://addons/godotsync/src/networking.gd" id="2_wqfuu"]
 [ext_resource type="Script" path="res://addons/godotsync/src/ui.gd" id="3_3y6pc"]
 
-[node name="GDSync" type="Node"]
+[node name="GDSync" type="Node" node_paths=PackedStringArray("networking", "ui")]
 script = ExtResource("1_btji2")
+networking = NodePath("Networking")
+ui = NodePath("UI")
 
 [node name="Networking" type="Node" parent="."]
 script = ExtResource("2_wqfuu")

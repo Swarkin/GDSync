@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://blcyq64s82lk7"]
+[gd_scene load_steps=4 format=3 uid="uid://blcyq64s82lk7"]
 
+[ext_resource type="Script" path="res://addons/godotsync/visual/ui_paths.gd" id="1_8k320"]
 [ext_resource type="LabelSettings" uid="uid://bcls25qfrokfy" path="res://addons/godotsync/visual/label_title.tres" id="1_lw23v"]
 [ext_resource type="PackedScene" uid="uid://n57xalrheu3d" path="res://addons/godotsync/visual/session.tscn" id="2_mjrsn"]
 
@@ -10,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_top = 4
+script = ExtResource("1_8k320")
 
 [node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 2

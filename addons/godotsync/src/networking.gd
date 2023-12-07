@@ -1,11 +1,11 @@
 @tool
 extends Node
-class_name GDSyncNetworking
+class_name GDSyncNetworkingComponent
 
 var api: MultiplayerAPI
 var peer: ENetMultiplayerPeer
 
-@onready var gdsync_ui := get_node(^'../UI') as GDSyncUI
+@onready var gdsync := get_parent() as GDSync
 
 
 #region RPCs

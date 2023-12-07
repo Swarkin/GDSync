@@ -13,7 +13,7 @@ func setup() -> void:
 	ui_instance = UI.instantiate() as Control
 
 	main_instance.editor_plugin = self
-	main_instance.plugin_ui_instance = ui_instance
+	main_instance.ui.instance = ui_instance
 
 	get_node(^'/root').add_child(main_instance, true)
 	EditorInterface.get_editor_main_screen().add_child(ui_instance)

@@ -3,13 +3,10 @@ extends Node
 class_name GDSync
 
 var editor_inspector := EditorInterface.get_inspector()
+var editor_plugin: GDSyncPlugin  ## Set by plugin.gd before _enter_tree()
 
-# Set by plugin.gd before _enter_tree()
-var editor_plugin: GDSyncPlugin
-var plugin_ui_instance: Control
-
-@onready var networking := get_node(^'Networking')
-@onready var ui := get_node(^'UI')
+@export var networking: GDSyncNetworkingComponent
+@export var ui: GDSyncUIComponent
 
 #func _ready() -> void:
 	#var tree := get_tree()
