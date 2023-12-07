@@ -1,4 +1,5 @@
 extends Control
+class_name GDSyncAddressPicker
 
 var ip := '127.0.0.1'
 var port := 25567

@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://n57xalrheu3d"]
 
+[ext_resource type="Script" path="res://addons/godotsync/visual/session_paths.gd" id="1_2kwm2"]
 [ext_resource type="LabelSettings" uid="uid://bbxgfs2qfkvq0" path="res://addons/godotsync/visual/label_subtitle.tres" id="1_foxsn"]
-[ext_resource type="Script" path="res://addons/godotsync/visual/session.gd" id="1_xvjxo"]
 [ext_resource type="PackedScene" uid="uid://dnqu8tm2j40eb" path="res://addons/godotsync/visual/scene_picker.tscn" id="2_mxtai"]
 [ext_resource type="PackedScene" uid="uid://cxl3ye7cf7c0i" path="res://addons/godotsync/visual/address_picker.tscn" id="3_of6fu"]
 
 [node name="Session" type="PanelContainer"]
 size_flags_horizontal = 0
 size_flags_vertical = 0
-script = ExtResource("1_xvjxo")
+script = ExtResource("1_2kwm2")
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 2

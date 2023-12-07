@@ -1,4 +1,5 @@
 extends Control
+class_name GDSyncScenePicker
 
 var selected_scene: PackedScene
 @onready var label := %SceneLabel as Label

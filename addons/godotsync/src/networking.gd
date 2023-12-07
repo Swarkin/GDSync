@@ -2,15 +2,11 @@
 extends Node
 class_name GDSyncNetworking
 
-@onready var gdsync_ui := get_node(^'../UI') as GDSyncUI
 var api: MultiplayerAPI
 var peer: ENetMultiplayerPeer
 
+@onready var gdsync_ui := get_node(^'../UI') as GDSyncUI
 
-func _ready() -> void:
-	print(get_path())
-	print(get_parent().get_children())
-	prints('GDSyncUI:', gdsync_ui)
 
 #region RPCs
 @rpc('any_peer', 'reliable')
@@ -63,3 +59,20 @@ func update_property(path: NodePath, property: StringName, value: Variant) -> vo
 	#var node := mp_scene_root.get_node(path)
 	#prints('-> rpc update_property(', node, property, value, ')')
 	#node[property] = value
+
+##region Multiplayer Callbacks
+#func _on_connected_to_server() -> void:  # Client
+	#print_rich('[color=white]connected_to_server[/color]')
+#
+#func _on_connection_failed() -> void:    # Client
+	#print_rich('[color=white]connection_failed[/color]')
+#
+#func _on_server_disconnected() -> void:  # Client
+	#print_rich('[color=white]server_disconnected[/color]')
+#
+#func _on_peer_connected(id: int) -> void:
+	#print_rich('[color=white]peer_connected(id: ', id, ')[/color]')
+#
+#func _on_peer_disconnected(id: int) -> void:
+	#print_rich('[color=white]peer_disconnected(id: ', id, ')[/color]')
+##endregion

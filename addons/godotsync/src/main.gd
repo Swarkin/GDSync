@@ -8,6 +8,9 @@ var editor_inspector := EditorInterface.get_inspector()
 var editor_plugin: GDSyncPlugin
 var plugin_ui_instance: Control
 
+@onready var networking := get_node(^'Networking')
+@onready var ui := get_node(^'UI')
+
 #func _ready() -> void:
 	#var tree := get_tree()
 	#tree.node_added.connect(_on_node_added)
@@ -52,21 +55,4 @@ var plugin_ui_instance: Control
 	#if EditorInterface.get_edited_scene_root().get_parent().is_ancestor_of(edited_object):
 		#prints('<- rpc update_property(', edited_object, property, edited_object[property], ')')
 		#networking.update_property.rpc(mp_scene_root.get_path_to(edited_object), property, edited_object[property])
-##endregion
-
-##region Multiplayer Callbacks
-#func _on_connected_to_server() -> void:  # Client
-	#print_rich('[color=white]connected_to_server[/color]')
-#
-#func _on_connection_failed() -> void:    # Client
-	#print_rich('[color=white]connection_failed[/color]')
-#
-#func _on_server_disconnected() -> void:  # Client
-	#print_rich('[color=white]server_disconnected[/color]')
-#
-#func _on_peer_connected(id: int) -> void:
-	#print_rich('[color=white]peer_connected(id: ', id, ')[/color]')
-#
-#func _on_peer_disconnected(id: int) -> void:
-	#print_rich('[color=white]peer_disconnected(id: ', id, ')[/color]')
 ##endregion
