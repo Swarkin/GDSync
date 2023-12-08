@@ -2,8 +2,8 @@
 extends EditorPlugin
 class_name GDSyncPlugin
 
-const Main := preload('res://addons/godotsync/src/main.tscn') as PackedScene
-const UI := preload('res://addons/godotsync/visual/ui.tscn') as PackedScene
+var Main := load('res://addons/godotsync/src/main.tscn') as PackedScene
+var UI := load('res://addons/godotsync/visual/ui.tscn') as PackedScene
 var main_instance: GDSync
 var ui_instance: Control
 
