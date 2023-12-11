@@ -2,11 +2,31 @@
 extends Node
 class_name GDSyncNetworkingComponent
 
+const PORT := 6969
 var api: MultiplayerAPI
 var peer: ENetMultiplayerPeer
 
 @onready var gdsync := get_parent() as GDSync
 
+
+func _ready() -> void:
+	gdsync.ui.session_create.connect(_on_create_pressed)
+	gdsync.ui.session_connect.connect(_on_connect_pressed)
+	gdsync.ui.session_end.connect(_on_end_pressed)
+
+#region Session Button Callbacks
+func _on_create_pressed() -> void:
+	print(' Creating Session')
+
+	peer = ENetMultiplayerPeer.new()
+	peer.create_server(PORT)
+
+func _on_connect_pressed() -> void:
+	print(' Connecting to Session')
+
+func _on_end_pressed() -> void:
+	print(' Ending Session')
+#endregion
 
 #region RPCs
 @rpc('any_peer', 'reliable')
