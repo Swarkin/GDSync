@@ -1,14 +1,19 @@
 [gd_scene load_steps=5 format=3 uid="uid://n57xalrheu3d"]
 
 [ext_resource type="Script" path="res://addons/godotsync/visual/session_paths.gd" id="1_2kwm2"]
-[ext_resource type="LabelSettings" uid="uid://bbxgfs2qfkvq0" path="res://addons/godotsync/visual/label_subtitle.tres" id="1_foxsn"]
+[ext_resource type="LabelSettings" uid="uid://bbxgfs2qfkvq0" path="res://addons/godotsync/visual/theme/label_subtitle.tres" id="1_foxsn"]
 [ext_resource type="PackedScene" uid="uid://dnqu8tm2j40eb" path="res://addons/godotsync/visual/scene_picker.tscn" id="2_mxtai"]
 [ext_resource type="PackedScene" uid="uid://cxl3ye7cf7c0i" path="res://addons/godotsync/visual/address_picker.tscn" id="3_of6fu"]
 
-[node name="Session" type="PanelContainer"]
+[node name="Session" type="PanelContainer" node_paths=PackedStringArray("scene_picker", "address_picker", "create_button", "connect_button", "end_button")]
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_2kwm2")
+scene_picker = NodePath("Margin/VBox/ScenePicker")
+address_picker = NodePath("Margin/VBox/AddressPicker")
+create_button = NodePath("Margin/VBox/Controls/Create")
+connect_button = NodePath("Margin/VBox/Controls/Connect")
+end_button = NodePath("Margin/VBox/Controls/End")
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -26,10 +31,12 @@ text = "Session"
 label_settings = ExtResource("1_foxsn")
 horizontal_alignment = 1
 
-[node name="AddressPicker" parent="Margin/VBox" instance=ExtResource("3_of6fu")]
+[node name="AddressPicker" parent="Margin/VBox" node_paths=PackedStringArray("ip_err", "port_err") instance=ExtResource("3_of6fu")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
+ip_err = NodePath("Margin/VBox/IPError")
+port_err = NodePath("Margin/VBox/PortError")
 
 [node name="ScenePicker" parent="Margin/VBox" instance=ExtResource("2_mxtai")]
 unique_name_in_owner = true

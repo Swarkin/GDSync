@@ -7,11 +7,12 @@ line_spacing = -4.0
 font_size = 14
 font_color = Color(0.807843, 0.807843, 0.807843, 1)
 
-[node name="ScenePicker" type="PanelContainer"]
+[node name="ScenePicker" type="PanelContainer" node_paths=PackedStringArray("scene_label")]
 custom_minimum_size = Vector2(300, 0)
 offset_right = 164.0
 offset_bottom = 39.0
 script = ExtResource("1_kxwtf")
+scene_label = NodePath("Margin/HBox/SceneLabel")
 
 [node name="FileDialog" type="FileDialog" parent="."]
 disable_3d = true

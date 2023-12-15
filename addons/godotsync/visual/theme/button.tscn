@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx1axqtotugyj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3kwd1"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 0.313726)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1iu80"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 0.235294)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cosvw"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 0.509804)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrh33"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.956863, 1, 0.858824, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s6xj2"]
+draw_center = false
+border_width_bottom = 4
+border_color = Color(0.956863, 1, 0.658824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6nvd"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+
+[node name="Bottom Button" type="Button"]
+offset_right = 62.0
+offset_bottom = 31.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_3kwd1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1iu80")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cosvw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jrh33")
+text = "Bottom Button"
+
+[node name="Color" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s6xj2")
+
+[node name="Clip" type="Panel" parent="."]
+visible = false
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d6nvd")

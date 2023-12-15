@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" path="res://addons/godotsync/visual/address_picker.gd" id="1_0rmnh"]
 
-[node name="AddressPicker" type="PanelContainer"]
+[node name="AddressPicker" type="PanelContainer" node_paths=PackedStringArray("ip_err", "port_err")]
 offset_right = 214.0
 offset_bottom = 39.0
 script = ExtResource("1_0rmnh")
+ip_err = NodePath("Margin/VBox/IPError")
+port_err = NodePath("Margin/VBox/PortError")
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 2

@@ -1,11 +1,12 @@
+@tool
 extends Control
 class_name GDSyncAddressPicker
 
+@export var ip_err: Label
+@export var port_err: Label
+
 var ip := '127.0.0.1'
 var port := 25567
-
-@onready var ip_err := %IPError as Label
-@onready var port_err := %PortError as Label
 
 func _ready() -> void:
 	validate_ip(ip)

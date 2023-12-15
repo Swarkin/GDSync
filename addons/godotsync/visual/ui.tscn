@@ -4,7 +4,7 @@
 [ext_resource type="LabelSettings" uid="uid://bcls25qfrokfy" path="res://addons/godotsync/visual/label_title.tres" id="1_lw23v"]
 [ext_resource type="PackedScene" uid="uid://n57xalrheu3d" path="res://addons/godotsync/visual/session.tscn" id="2_mjrsn"]
 
-[node name="Main" type="MarginContainer"]
+[node name="Main" type="MarginContainer" node_paths=PackedStringArray("session_panel")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,6 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_top = 4
 script = ExtResource("1_8k320")
+session_panel = NodePath("VBox/HFlow/Session")
 
 [node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 2

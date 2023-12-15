@@ -2,11 +2,11 @@
 extends Node
 class_name GDSync
 
-var editor_inspector := EditorInterface.get_inspector()
-var editor_plugin: GDSyncPlugin  ## Set by plugin.gd before _enter_tree()
-
-@export var networking: GDSyncNetworkingComponent
 @export var ui: GDSyncUIComponent
+@export var networking: GDSyncNetworkingComponent
+@export var watcher: GDSyncWatcherComponent
+
+var editor_plugin: GDSyncPlugin  ## Set by plugin.gd before _enter_tree()
 
 #func _ready() -> void:
 	#var tree := get_tree()
