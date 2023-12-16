@@ -104,20 +104,20 @@ border_color = Color(0.513726, 1, 0.576471, 0.4)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 
-[sub_resource type="Gradient" id="Gradient_bwkf2"]
+[sub_resource type="Gradient" id="Gradient_vdy20"]
 interpolation_mode = 2
 colors = PackedColorArray(0.513726, 1, 0.576471, 0.69, 0.513726, 1, 0.576471, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_y4hpv"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_slqmm"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_bwkf2")
+gradient = SubResource("Gradient_vdy20")
 width = 32
 height = 32
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 0.5)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfto0"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xa2gv"]
 content_margin_left = 15.0
 content_margin_top = 10.0
 content_margin_right = 15.0
@@ -129,7 +129,7 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 shadow_color = Color(0, 0, 0, 0.392157)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmowr"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60apn"]
 content_margin_left = 15.0
 content_margin_top = 10.0
 content_margin_right = 15.0
@@ -141,7 +141,7 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 shadow_color = Color(0, 0, 0, 0.392157)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58nnm"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sojcq"]
 bg_color = Color(0, 0, 0, 0.509804)
 border_width_bottom = 2
 border_color = Color(0.513726, 0.933333, 1, 1)
@@ -149,7 +149,7 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_detail = 1
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nnyji"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1xyhc"]
 bg_color = Color(0, 0, 0, 0.313726)
 draw_center = false
 border_width_left = 2
@@ -160,20 +160,20 @@ border_color = Color(0.513726, 0.933333, 1, 0.4)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 
-[sub_resource type="Gradient" id="Gradient_v0hrr"]
+[sub_resource type="Gradient" id="Gradient_j30np"]
 interpolation_mode = 2
 colors = PackedColorArray(0.513726, 0.933333, 1, 0.69, 0.513726, 0.933333, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3deec"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b6tx3"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_v0hrr")
+gradient = SubResource("Gradient_j30np")
 width = 32
 height = 32
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 0.5)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6grp"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0muj5"]
 content_margin_left = 15.0
 content_margin_top = 10.0
 content_margin_right = 15.0
@@ -185,7 +185,7 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 shadow_color = Color(0, 0, 0, 0.392157)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_txskx"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5u57b"]
 content_margin_left = 15.0
 content_margin_top = 10.0
 content_margin_right = 15.0
@@ -197,7 +197,7 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 shadow_color = Color(0, 0, 0, 0.392157)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msyv7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ysmim"]
 bg_color = Color(0, 0, 0, 0.509804)
 border_width_bottom = 2
 border_color = Color(1, 0.513726, 0.513726, 1)
@@ -205,7 +205,7 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_detail = 1
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iacss"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y2nvt"]
 bg_color = Color(0, 0, 0, 0.313726)
 draw_center = false
 border_width_left = 2
@@ -216,13 +216,13 @@ border_color = Color(1, 0.513726, 0.513726, 0.4)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 
-[sub_resource type="Gradient" id="Gradient_lgq5a"]
+[sub_resource type="Gradient" id="Gradient_kuktj"]
 interpolation_mode = 2
 colors = PackedColorArray(1, 0.513726, 0.513726, 0.69, 1, 0.513726, 0.513726, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ce72l"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_muljq"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_lgq5a")
+gradient = SubResource("Gradient_kuktj")
 width = 32
 height = 32
 fill = 1
@@ -337,28 +337,28 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_yako1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_bjtj6")
 theme_override_styles/focus = SubResource("StyleBoxFlat_0bmke")
 text = "Create"
-gradient_texture = SubResource("GradientTexture2D_y4hpv")
+gradient_texture = SubResource("GradientTexture2D_slqmm")
 
 [node name="Connect" parent="Margin/VBox/Controls" instance=ExtResource("5_u6mye")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_kfto0")
-theme_override_styles/hover = SubResource("StyleBoxFlat_kmowr")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_58nnm")
-theme_override_styles/focus = SubResource("StyleBoxFlat_nnyji")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xa2gv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_60apn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sojcq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1xyhc")
 text = "Connect"
-gradient_texture = SubResource("GradientTexture2D_3deec")
+gradient_texture = SubResource("GradientTexture2D_b6tx3")
 color = Color(0.513726, 0.933333, 1, 1)
 
 [node name="End" parent="Margin/VBox/Controls" instance=ExtResource("5_u6mye")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_g6grp")
-theme_override_styles/hover = SubResource("StyleBoxFlat_txskx")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_msyv7")
-theme_override_styles/focus = SubResource("StyleBoxFlat_iacss")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0muj5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5u57b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ysmim")
+theme_override_styles/focus = SubResource("StyleBoxFlat_y2nvt")
 text = "End"
-gradient_texture = SubResource("GradientTexture2D_ce72l")
+gradient_texture = SubResource("GradientTexture2D_muljq")
 color = Color(1, 0.513726, 0.513726, 1)

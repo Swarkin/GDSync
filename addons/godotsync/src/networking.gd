@@ -68,26 +68,7 @@ func _on_end_pressed() -> void:
 	reset_multiplayer()
 	gdsync.watcher.stop()
 #endregion
-#region Signals
-func _on_node_property_changed(node: Node, property: String) -> void:
-	update_property.rpc(gdsync.watcher.relative_path_to(node), property, node[property])
-#endregion
-
-
-#region RPCs
-@rpc('any_peer', 'call_remote', 'reliable')
-func update_property(path: NodePath, property: String, value: Variant) -> void:
-	print('-> rpc update_property(path: NodePath = ', path, ', property: String = ', property, 'value: Variant = ', value, ')')
-	var node := multiplayer_scene_root.get_node(path)
-#endregion
-
-
-#func _on_rpc_update_property(path: NodePath, property: StringName, value: Variant) -> void:
-	#var node := mp_scene_root.get_node(path)
-	#prints('-> rpc update_property(', node, property, value, ')')
-	#node[property] = value
-
-#region Multiplayer Callbacks
+#region Multiplayer
 func _on_connected_to_server() -> void:  # Client
 	print_rich('[color=white]connected_to_server[/color]')
 
@@ -102,4 +83,15 @@ func _on_peer_connected(id: int) -> void:
 
 func _on_peer_disconnected(id: int) -> void:
 	print_rich('[color=white]peer_disconnected(id: ', id, ')[/color]')
+#endregion
+#region Signals
+func _on_node_property_changed(node: Node, property: String) -> void:
+	update_property.rpc(gdsync.watcher.relative_path_to(node), property, node[property])
+#endregion
+
+#region RPCs
+@rpc('any_peer', 'call_local', 'reliable')
+func update_property(path: NodePath, property: String, value: Variant) -> void:
+	print('-> rpc update_property(path: NodePath = ', path, ', property: String = ', property, 'value: Variant = ', value, ')')
+	var node := multiplayer_scene_root.get_node(path)
 #endregion

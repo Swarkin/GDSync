@@ -45,6 +45,7 @@ caret_blink_interval = 0.5
 [node name="Port" type="LineEdit" parent="Margin/VBox/Address"]
 custom_minimum_size = Vector2(65, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7ai02")
 theme_override_styles/normal = ExtResource("3_wg1de")
 theme_override_styles/read_only = ExtResource("4_k6esf")
 text = "6969"
