@@ -1,10 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxl3ye7cf7c0i"]
+[gd_scene load_steps=6 format=3 uid="uid://cxl3ye7cf7c0i"]
 
 [ext_resource type="Script" path="res://addons/godotsync/visual/address_picker.gd" id="1_0rmnh"]
+[ext_resource type="FontFile" uid="uid://4k821h8ikvav" path="res://addons/godotsync/visual/font/Poppins-Medium.ttf" id="2_7ai02"]
+[ext_resource type="StyleBox" uid="uid://clfa5g8ruwv8u" path="res://addons/godotsync/visual/theme/line_edit_regular.tres" id="3_wg1de"]
+[ext_resource type="StyleBox" uid="uid://btvaf4tuocr0l" path="res://addons/godotsync/visual/theme/line_edit_readonly.tres" id="4_k6esf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rojng"]
 
 [node name="AddressPicker" type="PanelContainer" node_paths=PackedStringArray("ip_err", "port_err")]
 offset_right = 214.0
 offset_bottom = 39.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rojng")
 script = ExtResource("1_0rmnh")
 ip_err = NodePath("Margin/VBox/IPError")
 port_err = NodePath("Margin/VBox/PortError")
@@ -25,6 +31,9 @@ layout_mode = 2
 [node name="IP" type="LineEdit" parent="Margin/VBox/Address"]
 custom_minimum_size = Vector2(135, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7ai02")
+theme_override_styles/normal = ExtResource("3_wg1de")
+theme_override_styles/read_only = ExtResource("4_k6esf")
 text = "127.0.0.1"
 placeholder_text = "Address"
 expand_to_text_length = true
@@ -36,6 +45,8 @@ caret_blink_interval = 0.5
 [node name="Port" type="LineEdit" parent="Margin/VBox/Address"]
 custom_minimum_size = Vector2(65, 0)
 layout_mode = 2
+theme_override_styles/normal = ExtResource("3_wg1de")
+theme_override_styles/read_only = ExtResource("4_k6esf")
 text = "6969"
 placeholder_text = "Port"
 max_length = 5

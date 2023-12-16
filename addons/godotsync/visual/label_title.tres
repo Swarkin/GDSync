@@ -1,6 +1,9 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://bcls25qfrokfy"]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bcls25qfrokfy"]
+
+[ext_resource type="FontFile" uid="uid://4k821h8ikvav" path="res://addons/godotsync/visual/font/Poppins-Medium.ttf" id="1_347ts"]
 
 [resource]
+font = ExtResource("1_347ts")
 font_size = 24
-shadow_size = 6
-shadow_color = Color(0, 0, 0, 0.235294)
+shadow_size = 16
+shadow_color = Color(0, 0, 0, 0.270588)

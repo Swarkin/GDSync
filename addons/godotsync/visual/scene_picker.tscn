@@ -1,16 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnqu8tm2j40eb"]
+[gd_scene load_steps=10 format=3 uid="uid://dnqu8tm2j40eb"]
 
 [ext_resource type="Script" path="res://addons/godotsync/visual/scene_picker.gd" id="1_kxwtf"]
+[ext_resource type="FontFile" uid="uid://bwyn23uyx340w" path="res://addons/godotsync/visual/font/Poppins-Regular.ttf" id="2_ha6qr"]
+[ext_resource type="FontFile" uid="uid://4k821h8ikvav" path="res://addons/godotsync/visual/font/Poppins-Medium.ttf" id="2_o08v1"]
+[ext_resource type="StyleBox" uid="uid://ymeqyx8xuv3b" path="res://addons/godotsync/visual/theme/button_normal.tres" id="4_1gx62"]
+[ext_resource type="StyleBox" uid="uid://bmgy542lq4jl2" path="res://addons/godotsync/visual/theme/button_hover.tres" id="5_ybve4"]
+[ext_resource type="StyleBox" uid="uid://bvrhp7pq54prf" path="res://addons/godotsync/visual/theme/button_pressed.tres" id="6_4b5go"]
+[ext_resource type="StyleBox" uid="uid://cafr3atlp32he" path="res://addons/godotsync/visual/theme/button_focus.tres" id="7_mk3v6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yc5ce"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f6svn"]
-line_spacing = -4.0
+font = ExtResource("2_ha6qr")
 font_size = 14
-font_color = Color(0.807843, 0.807843, 0.807843, 1)
+font_color = Color(0.905882, 0.905882, 0.905882, 1)
 
 [node name="ScenePicker" type="PanelContainer" node_paths=PackedStringArray("scene_label")]
 custom_minimum_size = Vector2(300, 0)
 offset_right = 164.0
 offset_bottom = 39.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_yc5ce")
 script = ExtResource("1_kxwtf")
 scene_label = NodePath("Margin/HBox/SceneLabel")
 
@@ -55,6 +64,11 @@ autowrap_mode = 2
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_o08v1")
+theme_override_styles/normal = ExtResource("4_1gx62")
+theme_override_styles/hover = ExtResource("5_ybve4")
+theme_override_styles/pressed = ExtResource("6_4b5go")
+theme_override_styles/focus = ExtResource("7_mk3v6")
 text = "Choose"
 
 [connection signal="canceled" from="FileDialog" to="." method="clear"]

@@ -1,10 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://cgehicfe2qjop"]
 
-[ext_resource type="Script" path="res://addons/godotsync/visual/theme/glow_button.gd" id="1_3t0r4"]
-[ext_resource type="StyleBox" uid="uid://b6y07hjwtqewr" path="res://addons/godotsync/visual/theme/glow_button/normal.tres" id="1_ir0w0"]
-[ext_resource type="FontFile" uid="uid://4k821h8ikvav" path="res://addons/godotsync/visual/font/Poppins-Medium.ttf" id="5_3svgw"]
+[ext_resource type="Script" path="res://addons/godotsync/visual/theme/glow_button/glow_button.gd" id="1_8e2a5"]
+[ext_resource type="FontFile" uid="uid://4k821h8ikvav" path="res://addons/godotsync/visual/font/Poppins-Medium.ttf" id="2_uy0b3"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_thc0f"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hc01e"]
 content_margin_left = 15.0
 content_margin_top = 10.0
 content_margin_right = 15.0
@@ -16,7 +15,19 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 shadow_color = Color(0, 0, 0, 0.392157)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxp37"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdmhg"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.313726)
+border_width_bottom = 3
+border_color = Color(0.513726, 1, 0.576471, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+shadow_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i73rc"]
 bg_color = Color(0, 0, 0, 0.509804)
 border_width_bottom = 2
 border_color = Color(0.513726, 1, 0.576471, 1)
@@ -24,7 +35,7 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_detail = 1
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mr4xe"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okw7f"]
 bg_color = Color(0, 0, 0, 0.313726)
 draw_center = false
 border_width_left = 2
@@ -35,13 +46,13 @@ border_color = Color(0.513726, 1, 0.576471, 0.4)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 
-[sub_resource type="Gradient" id="Gradient_w24k4"]
+[sub_resource type="Gradient" id="Gradient_ih4vi"]
 interpolation_mode = 2
 colors = PackedColorArray(0.513726, 1, 0.576471, 0.69, 0.513726, 1, 0.576471, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_p60vs"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h3kp7"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_w24k4")
+gradient = SubResource("Gradient_ih4vi")
 width = 32
 height = 32
 fill = 1
@@ -54,7 +65,7 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 
 [sub_resource type="LabelSettings" id="LabelSettings_g3seh"]
-font = ExtResource("5_3svgw")
+font = ExtResource("2_uy0b3")
 font_color = Color(1, 1, 1, 0.901961)
 
 [node name="Button" type="Button" node_paths=PackedStringArray("gradient_rect", "overlay_label")]
@@ -66,15 +77,15 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 0)
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 0)
-theme_override_styles/normal = SubResource("StyleBoxFlat_thc0f")
-theme_override_styles/hover = ExtResource("1_ir0w0")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_yxp37")
-theme_override_styles/focus = SubResource("StyleBoxFlat_mr4xe")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hc01e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hdmhg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i73rc")
+theme_override_styles/focus = SubResource("StyleBoxFlat_okw7f")
 text = "Glow Button"
-script = ExtResource("1_3t0r4")
+script = ExtResource("1_8e2a5")
 gradient_rect = NodePath("Clip/TextureRect")
 overlay_label = NodePath("TextOverlay")
-gradient_texture = SubResource("GradientTexture2D_p60vs")
+gradient_texture = SubResource("GradientTexture2D_h3kp7")
 color = Color(0.513726, 1, 0.576471, 1)
 
 [node name="Clip" type="Panel" parent="."]
@@ -91,13 +102,13 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_usgjw")
 [node name="TextureRect" type="TextureRect" parent="Clip"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_left = 298.0
+offset_top = -228.0
+offset_right = 426.0
+offset_bottom = -100.0
 pivot_offset = Vector2(64, 64)
 mouse_filter = 2
-texture = SubResource("GradientTexture2D_p60vs")
+texture = SubResource("GradientTexture2D_h3kp7")
 stretch_mode = 6
 
 [node name="TextOverlay" type="Label" parent="."]

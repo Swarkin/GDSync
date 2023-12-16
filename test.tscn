@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ba0dmxo2tln06"]
 
-[ext_resource type="PackedScene" uid="uid://cgehicfe2qjop" path="res://addons/godotsync/visual/theme/glow_button.tscn" id="1_5mo4n"]
+[ext_resource type="PackedScene" uid="uid://cgehicfe2qjop" path="res://addons/godotsync/visual/theme/glow_button/glow_button.tscn" id="1_5mo4n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8ewx"]
 content_margin_left = 15.0
