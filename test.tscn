@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://ba0dmxo2tln06"]
+
+[ext_resource type="PackedScene" uid="uid://cgehicfe2qjop" path="res://addons/godotsync/visual/theme/glow_button.tscn" id="1_5mo4n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8ewx"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.313726)
+border_width_bottom = 3
+border_color = Color(0.776471, 0.52549, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+shadow_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tl15v"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.313726)
+border_width_bottom = 3
+border_color = Color(0.776471, 0.52549, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+shadow_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43ln2"]
+bg_color = Color(0, 0, 0, 0.509804)
+border_width_bottom = 2
+border_color = Color(0.776471, 0.52549, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhk01"]
+bg_color = Color(0, 0, 0, 0.313726)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.776471, 0.52549, 1, 0.4)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+
+[sub_resource type="Gradient" id="Gradient_04inr"]
+interpolation_mode = 2
+colors = PackedColorArray(0.776471, 0.52549, 1, 0.69, 0.776471, 0.52549, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l7fqy"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_04inr")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0.5)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" parent="." instance=ExtResource("1_5mo4n")]
+layout_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_y8ewx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tl15v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_43ln2")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hhk01")
+gradient_texture = SubResource("GradientTexture2D_l7fqy")
+color = Color(0.776471, 0.52549, 1, 1)

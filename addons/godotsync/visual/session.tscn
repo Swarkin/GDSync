@@ -1,19 +1,185 @@
-[gd_scene load_steps=5 format=3 uid="uid://n57xalrheu3d"]
+[gd_scene load_steps=24 format=3 uid="uid://n57xalrheu3d"]
 
 [ext_resource type="Script" path="res://addons/godotsync/visual/session_paths.gd" id="1_2kwm2"]
 [ext_resource type="LabelSettings" uid="uid://bbxgfs2qfkvq0" path="res://addons/godotsync/visual/theme/label_subtitle.tres" id="1_foxsn"]
 [ext_resource type="PackedScene" uid="uid://dnqu8tm2j40eb" path="res://addons/godotsync/visual/scene_picker.tscn" id="2_mxtai"]
 [ext_resource type="PackedScene" uid="uid://cxl3ye7cf7c0i" path="res://addons/godotsync/visual/address_picker.tscn" id="3_of6fu"]
+[ext_resource type="PackedScene" uid="uid://cgehicfe2qjop" path="res://addons/godotsync/visual/theme/glow_button.tscn" id="5_0lr1s"]
 
-[node name="Session" type="PanelContainer" node_paths=PackedStringArray("scene_picker", "address_picker", "create_button", "connect_button", "end_button")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g23kw"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.313726)
+border_width_bottom = 3
+border_color = Color(0.513726, 1, 0.576471, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+shadow_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cu6jg"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.313726)
+border_width_bottom = 3
+border_color = Color(0.513726, 1, 0.576471, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+shadow_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_572pa"]
+bg_color = Color(0, 0, 0, 0.509804)
+border_width_bottom = 2
+border_color = Color(0.513726, 1, 0.576471, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_toxrd"]
+bg_color = Color(0, 0, 0, 0.313726)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.513726, 1, 0.576471, 0.4)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+
+[sub_resource type="Gradient" id="Gradient_to75o"]
+interpolation_mode = 2
+colors = PackedColorArray(0.513726, 1, 0.576471, 0.69, 0.513726, 1, 0.576471, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cxrit"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_to75o")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oq7l1"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.313726)
+border_width_bottom = 3
+border_color = Color(0.513726, 0.933333, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+shadow_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcrg1"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.313726)
+border_width_bottom = 3
+border_color = Color(0.513726, 0.933333, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+shadow_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptl1i"]
+bg_color = Color(0, 0, 0, 0.509804)
+border_width_bottom = 2
+border_color = Color(0.513726, 0.933333, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lb8ds"]
+bg_color = Color(0, 0, 0, 0.313726)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.513726, 0.933333, 1, 0.4)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+
+[sub_resource type="Gradient" id="Gradient_7yoe5"]
+interpolation_mode = 2
+colors = PackedColorArray(0.513726, 0.933333, 1, 0.69, 0.513726, 0.933333, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7r20o"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_7yoe5")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxtpt"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.313726)
+border_width_bottom = 3
+border_color = Color(1, 0.513726, 0.513726, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+shadow_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dhsb"]
+content_margin_left = 15.0
+content_margin_top = 10.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.313726)
+border_width_bottom = 3
+border_color = Color(1, 0.513726, 0.513726, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+shadow_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qbap"]
+bg_color = Color(0, 0, 0, 0.509804)
+border_width_bottom = 2
+border_color = Color(1, 0.513726, 0.513726, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6hkn"]
+bg_color = Color(0, 0, 0, 0.313726)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.513726, 0.513726, 0.4)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+
+[sub_resource type="Gradient" id="Gradient_h4tnn"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 0.513726, 0.513726, 0.69, 1, 0.513726, 0.513726, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f24l0"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_h4tnn")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0.5)
+
+[node name="Session" type="PanelContainer" node_paths=PackedStringArray("scene_picker", "address_picker")]
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_2kwm2")
 scene_picker = NodePath("Margin/VBox/ScenePicker")
 address_picker = NodePath("Margin/VBox/AddressPicker")
-create_button = NodePath("Margin/VBox/Controls/Create")
-connect_button = NodePath("Margin/VBox/Controls/Connect")
-end_button = NodePath("Margin/VBox/Controls/End")
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -31,12 +197,10 @@ text = "Session"
 label_settings = ExtResource("1_foxsn")
 horizontal_alignment = 1
 
-[node name="AddressPicker" parent="Margin/VBox" node_paths=PackedStringArray("ip_err", "port_err") instance=ExtResource("3_of6fu")]
+[node name="AddressPicker" parent="Margin/VBox" instance=ExtResource("3_of6fu")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
-ip_err = NodePath("Margin/VBox/IPError")
-port_err = NodePath("Margin/VBox/PortError")
 
 [node name="ScenePicker" parent="Margin/VBox" instance=ExtResource("2_mxtai")]
 unique_name_in_owner = true
@@ -49,22 +213,37 @@ layout_mode = 2
 [node name="Controls" type="HBoxContainer" parent="Margin/VBox"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 8
+theme_override_constants/separation = 16
 
-[node name="Create" type="Button" parent="Margin/VBox/Controls"]
+[node name="Create" parent="Margin/VBox/Controls" instance=ExtResource("5_0lr1s")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_g23kw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cu6jg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_572pa")
+theme_override_styles/focus = SubResource("StyleBoxFlat_toxrd")
 text = "Create"
+gradient_texture = SubResource("GradientTexture2D_cxrit")
+color = Color(0.513726, 1, 0.576471, 1)
 
-[node name="Connect" type="Button" parent="Margin/VBox/Controls"]
+[node name="Connect" parent="Margin/VBox/Controls" instance=ExtResource("5_0lr1s")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_oq7l1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hcrg1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ptl1i")
+theme_override_styles/focus = SubResource("StyleBoxFlat_lb8ds")
 text = "Connect"
+gradient_texture = SubResource("GradientTexture2D_7r20o")
+color = Color(0.513726, 0.933333, 1, 1)
 
-[node name="End" type="Button" parent="Margin/VBox/Controls"]
+[node name="End" parent="Margin/VBox/Controls" instance=ExtResource("5_0lr1s")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-text = "Stop"
+theme_override_styles/normal = SubResource("StyleBoxFlat_qxtpt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3dhsb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3qbap")
+theme_override_styles/focus = SubResource("StyleBoxFlat_w6hkn")
+text = "End"
+gradient_texture = SubResource("GradientTexture2D_f24l0")
+color = Color(1, 0.513726, 0.513726, 1)
