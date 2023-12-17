@@ -94,4 +94,5 @@ func _on_node_property_changed(node: Node, property: String) -> void:
 func update_property(path: NodePath, property: String, value: Variant) -> void:
 	print('-> rpc update_property(path: NodePath = ', path, ', property: String = ', property, 'value: Variant = ', value, ')')
 	var node := multiplayer_scene_root.get_node(path)
+	node[property] = value
 #endregion
