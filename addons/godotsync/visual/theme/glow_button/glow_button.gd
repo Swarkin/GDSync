@@ -8,33 +8,29 @@ extends Button
 
 @export_group('')
 @export_color_no_alpha var color: Color:
-	set(v):
-		color = v
-		gradient_texture.gradient.colors[0] = Color(v, 0.69)
-		gradient_texture.gradient.colors[1] = Color(v, 0.0)
-		for override: StringName in [&'normal', &'hover', &'pressed', &'focus']:
-			var stylebox := (get_theme_stylebox(override) as StyleBoxFlat).duplicate(true)
-			if override == &'focus':
-				stylebox.border_color = Color(v, 0.4)
-			else:
-				stylebox.border_color = v
-			add_theme_stylebox_override(override, stylebox)
+	set(c):
+		color = c
+		_compute_style(c)
 
 var dry_run := false
 var transparency_tween: Tween = null
 var scale_tween: Tween = null
 
 func _set(property: StringName, value: Variant) -> bool:
-	if property == &'text':
-		text = value
-		overlay_label.text = value
-		return true
-	return false
+	match property:
+		&'text':
+			text = value
+			overlay_label.text = value
+		&'disabled':
+			disabled = value
+			overlay_label.label_settings.font_color = Color.DARK_GRAY if value else Color.GAINSBORO
+		_:
+			return false
+	return true
 
 func _ready() -> void:
 	gradient_texture = gradient_texture.duplicate(true)
 	gradient_rect.texture = gradient_texture
-
 
 func _process(_dt: float) -> void:
 	if dry_run: return
@@ -42,12 +38,35 @@ func _process(_dt: float) -> void:
 	gradient_rect.position = mouse_pos - gradient_rect.size * 0.5
 
 
+func _compute_style(c: Color, disabled_state := false) -> void:
+	gradient_texture.gradient.colors[0] = Color(c, 0.69)
+	gradient_texture.gradient.colors[1] = Color(c, 0.0)
+
+	var sb := get_theme_stylebox(&'normal').duplicate(true) as StyleBoxFlat
+	sb.border_color = c
+	add_theme_stylebox_override(&'normal', sb)
+	add_theme_stylebox_override(&'hover', sb)
+
+	sb = sb.duplicate(true) as StyleBoxFlat
+	sb.border_width_bottom = 2
+	add_theme_stylebox_override(&'pressed', sb)
+
+	sb = get_theme_stylebox(&'disabled').duplicate(true) as StyleBoxFlat
+	sb.bg_color = Color(0, 0, 0, 0.2)
+	sb.border_color = Color(c, 0.2)
+	add_theme_stylebox_override(&'disabled', sb)
+
+	sb = get_theme_stylebox(&'focus').duplicate(true) as StyleBoxFlat
+	sb.border_color = Color(c, 0.4)
+	add_theme_stylebox_override(&'focus', sb)
+
+
 func _on_mouse_entered() -> void:
 	if dry_run: return
 	set_process(true)
 	_clear_transparency_tween()
 	transparency_tween = create_tween()
-	transparency_tween.tween_property(gradient_rect, ^'modulate', Color.WHITE, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	transparency_tween.tween_property(gradient_rect, ^'modulate', Color.WHITE if not disabled else Color(Color.WHITE, 0.2), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 
 func _on_mouse_exited() -> void:
 	if dry_run: return
@@ -72,7 +91,7 @@ func _on_button_up() -> void:
 	scale_tween.tween_property(gradient_rect, ^'scale', Vector2.ONE, 0.4).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	_clear_transparency_tween()
 	transparency_tween = create_tween()
-	transparency_tween.tween_property(gradient_rect, ^'modulate', Color.WHITE, 0.4)
+	transparency_tween.tween_property(gradient_rect, ^'modulate', Color.WHITE if not disabled else Color(Color.WHITE, 0.2), 0.4)
 
 
 func _clear_transparency_tween() -> void:

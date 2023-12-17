@@ -58,7 +58,14 @@ func _on_end_pressed() -> void:
 func setup_multiplayer(peer: ENetMultiplayerPeer) -> void:
 	multiplayer_scene_root = EditorInterface.get_edited_scene_root()
 	multiplayer_scene_root.multiplayer.multiplayer_peer = peer
+
 	api = multiplayer_scene_root.multiplayer
+	api.connected_to_server.connect(_on_connected_to_server)
+	api.connection_failed.connect(_on_connection_failed)
+	api.server_disconnected.connect(_on_server_disconnected)
+	api.peer_connected.connect(_on_peer_connected)
+	api.peer_disconnected.connect(_on_peer_disconnected)
+
 	gdsync.watcher.node_property_changed.connect(_on_node_property_changed)
 
 func reset_multiplayer() -> void:
@@ -70,6 +77,12 @@ func reset_multiplayer() -> void:
 		api = null
 	if multiplayer_scene_root:
 		multiplayer_scene_root = null
+
+	api.connected_to_server.disconnect(_on_connected_to_server)
+	api.connection_failed.disconnect(_on_connection_failed)
+	api.server_disconnected.disconnect(_on_server_disconnected)
+	api.peer_connected.disconnect(_on_peer_connected)
+	api.peer_disconnected.disconnect(_on_peer_disconnected)
 
 	gdsync.watcher.node_property_changed.disconnect(_on_node_property_changed)
 
@@ -94,7 +107,7 @@ func _on_node_property_changed(node: Node, property: String) -> void:
 #region RPCs
 @rpc('any_peer', 'call_local', 'reliable')
 func update_property(path: NodePath, property: String, value: Variant) -> void:
-	print('-> rpc update_property(path: NodePath = ', path, ', property: String = ', property, 'value: Variant = ', value, ')')
+	print('-> rpc update_property(path: NodePath = ', path, ', property: String = ', property, ', value: Variant = ', value, ')')
 	var node := multiplayer_scene_root.get_node(path)
 	node[property] = value
 #endregion
