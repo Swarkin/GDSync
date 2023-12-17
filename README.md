@@ -9,13 +9,13 @@ Inspired by the Collaborate feature on Roblox Studio, this addon tries to provid
 > The color represents the difficulty of each task
 
 ### What's currently being worked on?
-- [ ] ⬜ Initial development of the general features
-- [ ] 🟩 Indicator of the camera location of connected clients in 3D
-- [ ] 🟨 Indicator of the currently selected element in 3D and/or the Inspector
+- ⬜ Initial development of the general features
+- 🟩 [#3](https://github.com/Swarkin/GDSync/issues/3) Indicator for each peer's position
+- 🟨 [#1](https://github.com/Swarkin/GDSync/issues/1) Indicator for each peer's currently edited element
 
 ### What's planned for the future?
-- [ ] 🟥 Allow different scenes to be edited simultaneously
-- [ ] 🟧 Allow (sub)resources to be edited without manually opening them or causing errors
+- 🟥 [#2](https://github.com/Swarkin/GDSync/issues/2) Allow different scenes to be edited simultaneously
+- 🟧 Allow (sub)resources to be edited without manually opening them or causing errors
 <br>
 
 ## Contributing
