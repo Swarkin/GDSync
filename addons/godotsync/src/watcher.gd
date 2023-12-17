@@ -35,7 +35,7 @@ func stop() -> void:
 	selected_node = null
 
 func _is_relevant(node: Node) -> bool:
-	if EditorInterface.get_edited_scene_root().get_parent().is_ancestor_of(node):
+	if gdsync.networking.multiplayer_scene_root.is_ancestor_of(node):
 		return true
 	return false
 
@@ -70,5 +70,6 @@ func _on_property_edited(property: String) -> void:
 
 		node_property_changed.emit(edited_object, property)
 	else:
+		# FIXME: Find a way of checking whether this Object is relevant or not
 		prints(edited_object, property, '=', edited_object[property])
 #endregion

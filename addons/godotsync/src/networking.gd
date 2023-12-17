@@ -15,22 +15,7 @@ func _ready() -> void:
 	s.connect_button.pressed.connect(_on_connect_pressed)
 	s.end_button.pressed.connect(_on_end_pressed)
 
-
-func setup_multiplayer() -> void:
-	multiplayer_scene_root = EditorInterface.get_edited_scene_root()
-	multiplayer_scene_root.multiplayer.multiplayer_peer = peer
-	gdsync.watcher.node_property_changed.connect(_on_node_property_changed)
-
-func reset_multiplayer() -> void:
-	if peer:
-		peer.close()
-		peer = null
-	if multiplayer_scene_root:
-		multiplayer_scene_root.multiplayer.multiplayer_peer = null
-		multiplayer_scene_root = null
-
-# Callbacks
-#region Session
+#region Session Buttons
 func _on_create_pressed() -> void:
 	print(' Creating Session')
 
@@ -41,7 +26,7 @@ func _on_create_pressed() -> void:
 		reset_multiplayer()
 		return
 
-	setup_multiplayer()
+	setup_multiplayer(peer)
 	gdsync.watcher.start()
 
 func _on_connect_pressed() -> void:
@@ -59,7 +44,7 @@ func _on_connect_pressed() -> void:
 		reset_multiplayer()
 		return
 
-	setup_multiplayer()
+	setup_multiplayer(peer)
 	gdsync.watcher.start()
 
 func _on_end_pressed() -> void:
@@ -68,22 +53,39 @@ func _on_end_pressed() -> void:
 	reset_multiplayer()
 	gdsync.watcher.stop()
 #endregion
+
 #region Multiplayer
+func setup_multiplayer(peer: ENetMultiplayerPeer) -> void:
+	multiplayer_scene_root = EditorInterface.get_edited_scene_root()
+	multiplayer_scene_root.multiplayer.multiplayer_peer = peer
+	api = multiplayer_scene_root.multiplayer
+	gdsync.watcher.node_property_changed.connect(_on_node_property_changed)
+
+func reset_multiplayer() -> void:
+	if peer:
+		peer.close()
+		peer = null
+	if api:
+		api.multiplayer_peer = null
+		api = null
+	if multiplayer_scene_root:
+		multiplayer_scene_root = null
+
+	gdsync.watcher.node_property_changed.disconnect(_on_node_property_changed)
+
+
 func _on_connected_to_server() -> void:  # Client
 	print_rich('[color=white]connected_to_server[/color]')
-
 func _on_connection_failed() -> void:    # Client
 	print_rich('[color=white]connection_failed[/color]')
-
 func _on_server_disconnected() -> void:  # Client
 	print_rich('[color=white]server_disconnected[/color]')
-
 func _on_peer_connected(id: int) -> void:
 	print_rich('[color=white]peer_connected(id: ', id, ')[/color]')
-
 func _on_peer_disconnected(id: int) -> void:
 	print_rich('[color=white]peer_disconnected(id: ', id, ')[/color]')
 #endregion
+
 #region Signals
 func _on_node_property_changed(node: Node, property: String) -> void:
 	update_property.rpc(gdsync.watcher.relative_path_to(node), property, node[property])
