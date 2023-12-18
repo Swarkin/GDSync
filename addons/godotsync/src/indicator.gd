@@ -12,7 +12,11 @@ var indicator_2d_parent: Node2D
 var indicator_3d_parent: Node3D
 
 func _ready() -> void:
-	gdsync.editor_plugin.main_screen_changed.connect(_on_main_screen_changed)
+	var plugin := gdsync.editor_plugin
+	if not plugin:
+		return
+
+	plugin.main_screen_changed.connect(_on_main_screen_changed)
 
 	var p := gdsync.networking.multiplayer_scene_root
 	indicator_2d_parent = Node2D.new()
@@ -43,7 +47,7 @@ func _create_relevant_indicators(peers: PackedInt32Array) -> void:
 			print('No indicators to create')
 
 func _create_2d_indicators(peers: PackedInt32Array) -> void:
-	prints('Creating 3D indicators for peers', peers)
+	prints('Creating 2D indicators for peers', peers)
 
 	for peer: int in peers:
 		var instance := INDICATOR_2D_SCN.instantiate()
@@ -64,6 +68,7 @@ func _create_3d_indicators(peers: PackedInt32Array) -> void:
 
 
 func _clear_all_indicators() -> void:
+	print('Clearing all indicators')
 	_clear_2d_indicators()
 	_clear_3d_indicators()
 

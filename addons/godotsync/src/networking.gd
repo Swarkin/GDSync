@@ -13,6 +13,10 @@ var peer: ENetMultiplayerPeer
 var multiplayer_scene_root: Node
 
 func _ready() -> void:
+	var plugin := gdsync.editor_plugin
+	if not plugin:
+		return
+
 	var s := gdsync.ui.instance.session_panel
 	s.create_button.pressed.connect(_on_create_pressed)
 	s.connect_button.pressed.connect(_on_connect_pressed)
