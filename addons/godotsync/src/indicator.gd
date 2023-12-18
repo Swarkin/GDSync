@@ -5,36 +5,28 @@ class_name GDSyncIndicatorComponent
 const INDICATOR_2D_SCN := preload('res://addons/godotsync/visual/indicators/2d.tscn')
 const INDICATOR_3D_SCN := preload('res://addons/godotsync/visual/indicators/3d.tscn')
 
-enum ScreenType {EDITOR_2D, EDITOR_3D, OTHER}
-
 @export var gdsync: GDSync
-var current_screen := ScreenType.OTHER
+
+var current_screen: String
 var indicator_2d_parent: Node2D
 var indicator_3d_parent: Node3D
 
 func _ready() -> void:
 	gdsync.editor_plugin.main_screen_changed.connect(_on_main_screen_changed)
-	gdsync.networking.session_started.connect(_on_session_started)
-	gdsync.networking.session_ended.connect(_on_session_ended)
 
 	var p := gdsync.networking.multiplayer_scene_root
 	indicator_2d_parent = Node2D.new()
 	indicator_3d_parent = Node3D.new()
 	p.add_child(indicator_2d_parent)
 	p.add_child(indicator_3d_parent)
+	indicator_2d_parent.owner = gdsync.networking.multiplayer_scene_root
+	indicator_3d_parent.owner = gdsync.networking.multiplayer_scene_root
 
 
 func _on_main_screen_changed(new_screen: String) -> void:
+	current_screen = new_screen
 	prints('Switched screen to', new_screen)
-	# TODO: Delete and recreate all indicators upon scene change
-
-	match new_screen:
-		'2D':
-			current_screen = ScreenType.EDITOR_2D
-		'3D':
-			current_screen = ScreenType.EDITOR_3D
-		_:
-			current_screen = ScreenType.OTHER
+	# TODO: Delete and recreate all indicators upon main screen change
 
 	_clear_all_indicators()
 	_create_relevant_indicators(gdsync.networking.api.get_peers())
@@ -43,9 +35,9 @@ func _on_main_screen_changed(new_screen: String) -> void:
 #region Indicators
 func _create_relevant_indicators(peers: PackedInt32Array) -> void:
 	match current_screen:
-		ScreenType.EDITOR_2D:
+		'2D':
 			_create_2d_indicators(peers)
-		ScreenType.EDITOR_3D:
+		'3D':
 			_create_3d_indicators(peers)
 		_:
 			print('No indicators to create')
@@ -54,14 +46,20 @@ func _create_2d_indicators(peers: PackedInt32Array) -> void:
 	prints('Creating 3D indicators for peers', peers)
 
 	for peer: int in peers:
-		pass
+		var instance := INDICATOR_2D_SCN.instantiate()
+		(instance.get_node(^'%Label') as Label).text = str(peer)
+		indicator_2d_parent.add_child(instance)
+		instance.owner = indicator_2d_parent
 		# TODO
 
 func _create_3d_indicators(peers: PackedInt32Array) -> void:
 	prints('Creating 3D indicators for peers', peers)
 
 	for peer: int in peers:
-		pass
+		var instance := INDICATOR_3D_SCN.instantiate()
+		(instance.get_node(^'%Label3D') as Label3D).text = str(peer)
+		indicator_3d_parent.add_child(instance)
+		instance.owner = indicator_3d_parent
 		# TODO
 
 

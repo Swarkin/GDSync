@@ -26,3 +26,6 @@ gdsync = NodePath("..")
 [node name="Indicator" type="Node" parent="." node_paths=PackedStringArray("gdsync")]
 script = ExtResource("5_n5dgm")
 gdsync = NodePath("..")
+
+[connection signal="session_ended" from="Networking" to="Indicator" method="_on_session_ended"]
+[connection signal="session_started" from="Networking" to="Indicator" method="_on_session_started"]
