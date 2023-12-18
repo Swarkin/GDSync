@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxcn413v0gu3"]
+[gd_scene load_steps=6 format=3 uid="uid://dxcn413v0gu3"]
 
 [ext_resource type="Script" path="res://addons/godotsync/src/main.gd" id="1_btji2"]
 [ext_resource type="Script" path="res://addons/godotsync/src/networking.gd" id="2_wqfuu"]
 [ext_resource type="Script" path="res://addons/godotsync/src/ui.gd" id="3_3y6pc"]
 [ext_resource type="Script" path="res://addons/godotsync/src/watcher.gd" id="4_kpfpt"]
+[ext_resource type="Script" path="res://addons/godotsync/src/indicator.gd" id="5_n5dgm"]
 
 [node name="GDSync" type="Node" node_paths=PackedStringArray("ui", "networking", "watcher")]
 script = ExtResource("1_btji2")
@@ -20,4 +21,8 @@ gdsync = NodePath("..")
 
 [node name="Watcher" type="Node" parent="." node_paths=PackedStringArray("gdsync")]
 script = ExtResource("4_kpfpt")
+gdsync = NodePath("..")
+
+[node name="Indicator" type="Node" parent="." node_paths=PackedStringArray("gdsync")]
+script = ExtResource("5_n5dgm")
 gdsync = NodePath("..")

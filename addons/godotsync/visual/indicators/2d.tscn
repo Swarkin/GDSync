@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bu5uysgqpagmg"]
+
+[ext_resource type="FontFile" uid="uid://bwyn23uyx340w" path="res://addons/godotsync/visual/font/Poppins-Regular.ttf" id="1_3yqs4"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mfi6w"]
+size = Vector2(16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_myh6m"]
+font = ExtResource("1_3yqs4")
+outline_size = 2
+outline_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
+
+[node name="2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Cursor" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("PlaceholderTexture2D_mfi6w")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 117.0
+offset_bottom = 43.0
+text = "0123456789"
+label_settings = SubResource("LabelSettings_myh6m")

@@ -2,6 +2,9 @@
 extends Node
 class_name GDSyncNetworkingComponent
 
+signal session_started
+signal session_ended
+
 const PORT := 25567
 @export var gdsync: GDSync
 
@@ -67,6 +70,7 @@ func setup_multiplayer(peer: ENetMultiplayerPeer) -> void:
 	api.peer_disconnected.connect(_on_peer_disconnected)
 
 	gdsync.watcher.node_property_changed.connect(_on_node_property_changed)
+	session_started.emit()
 
 func reset_multiplayer() -> void:
 	if peer:
@@ -85,6 +89,7 @@ func reset_multiplayer() -> void:
 	api.peer_disconnected.disconnect(_on_peer_disconnected)
 
 	gdsync.watcher.node_property_changed.disconnect(_on_node_property_changed)
+	session_ended.emit()
 
 
 func _on_connected_to_server() -> void:  # Client

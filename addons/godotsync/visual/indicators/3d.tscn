@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfgfnbdbcw6xj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wewuj"]
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+albedo_color = Color(1, 1, 1, 0.588235)
+
+[sub_resource type="SphereMesh" id="SphereMesh_7bt45"]
+material = SubResource("StandardMaterial3D_wewuj")
+radius = 0.25
+height = 0.5
+radial_segments = 32
+rings = 16
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ttpol"]
+material = SubResource("StandardMaterial3D_wewuj")
+top_radius = 0.04
+bottom_radius = 0.04
+height = 0.25
+radial_segments = 16
+rings = 1
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vu42l"]
+material = SubResource("StandardMaterial3D_wewuj")
+top_radius = 0.0
+bottom_radius = 0.075
+height = 0.1
+radial_segments = 16
+rings = 1
+cap_top = false
+
+[node name="3D Indicator" type="Node3D"]
+
+[node name="Ball" type="MeshInstance3D" parent="."]
+gi_mode = 0
+mesh = SubResource("SphereMesh_7bt45")
+
+[node name="Label3D" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+pixel_size = 0.001
+billboard = 1
+no_depth_test = true
+fixed_size = true
+outline_modulate = Color(0, 0, 0, 0.705882)
+text = "0123456789"
+font_size = 28
+outline_size = 4
+
+[node name="Pointer" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.369862)
+mesh = SubResource("CylinderMesh_ttpol")
+
+[node name="Arrow" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.544862)
+mesh = SubResource("CylinderMesh_vu42l")
