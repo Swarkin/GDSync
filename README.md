@@ -2,7 +2,7 @@
 Inspired by the [Collaborate feature in Roblox Studio](https://create.roblox.com/docs/projects/collaboration), this addon tries to provide a similar experience for Godot that allows you to edit a scene together with other people in real-time.
 
 > [!WARNING]  
-> Currently, the plugin is still in development and will not function in its current state.
+> This plugin is still in development and might not function in its current state.
 <br>
 
 ## Features and Drawbacks
